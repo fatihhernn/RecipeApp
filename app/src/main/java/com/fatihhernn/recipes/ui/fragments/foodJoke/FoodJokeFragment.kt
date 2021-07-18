@@ -1,13 +1,13 @@
-package com.fatihhernn.recipes
+package com.fatihhernn.recipes.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.fatihhernn.recipes.R
 
-
-class FavoriteRecipesFragment : Fragment() {
+class FoodJokeFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -15,7 +15,7 @@ class FavoriteRecipesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite_recipes, container, false)
+        return inflater.inflate(R.layout.fragment_food_joke, container, false)
     }
 
 }
