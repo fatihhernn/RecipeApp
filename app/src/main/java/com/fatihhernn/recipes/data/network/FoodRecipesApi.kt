@@ -1,4 +1,4 @@
-package com.fatihhernn.recipes.data
+package com.fatihhernn.recipes.data.network
 
 import com.fatihhernn.recipes.models.FoodRecipe
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.fatihhernn.recipes
+package com.fatihhernn.recipes.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.fatihhernn.recipes.R
 import com.fatihhernn.recipes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +27,8 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.recipesFragment,
                 R.id.favoriteRecipesFragment,
-                R.id.foodJokeFragment)
+                R.id.foodJokeFragment
+            )
         )
 
         binding.bottomNavigationView.setupWithNavController(navController)

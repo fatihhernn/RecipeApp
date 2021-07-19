@@ -1,4 +1,4 @@
-package com.fatihhernn.recipes.ui.fragments
+package com.fatihhernn.recipes.ui.fragments.favorite
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

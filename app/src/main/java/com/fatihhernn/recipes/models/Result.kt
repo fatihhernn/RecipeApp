@@ -1,7 +1,9 @@
-package com.fatihhernn.recipes
+package com.fatihhernn.recipes.models
 
 
 import com.google.gson.annotations.SerializedName
+
+//https://api.spoonacular.com/recipes/complexSearch?number=50&apiKey=5f4fae60dba24eee90ffcb754c28259a&type=snack&diet=vegan&addRecipeInformation=true&fillIngredients=true
 
 data class Result(
     @SerializedName("aggregateLikes")
@@ -12,7 +14,6 @@ data class Result(
     val dairyFree: Boolean,
     @SerializedName("extendedIngredients")
     val extendedIngredients: List<ExtendedIngredient>,
-
     @SerializedName("glutenFree")
     val glutenFree: Boolean,
     @SerializedName("id")

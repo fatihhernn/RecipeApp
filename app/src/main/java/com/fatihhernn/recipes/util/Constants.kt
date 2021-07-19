@@ -1,4 +1,4 @@
-package com.fatihhernn.recipes.ui
+package com.fatihhernn.recipes.util
 
 class Constants {
     companion object{

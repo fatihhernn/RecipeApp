@@ -1,7 +1,7 @@
-package com.fatihhernn.recipes.ui
+package com.fatihhernn.recipes.data
 
+import com.fatihhernn.recipes.data.network.FoodRecipesApi
 import com.fatihhernn.recipes.models.FoodRecipe
-import com.fatihhernn.recipes.ui.FoodRecipesApi
 import retrofit2.Response
 import javax.inject.Inject
 
