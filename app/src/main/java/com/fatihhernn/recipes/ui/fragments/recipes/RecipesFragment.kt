@@ -41,6 +41,9 @@ class RecipesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner=viewLifecycleOwner
+        binding.mainViewModel=mainViewModel
+
 
         setupRecyclerView()
         readDatabase()
@@ -50,8 +53,8 @@ class RecipesFragment : Fragment() {
 
 
     private fun setupRecyclerView() {
-        _binding!!.recylerview.adapter = mAdapter
-        _binding!!.recylerview.layoutManager = LinearLayoutManager(requireContext())
+        _binding!!.recyclerview.adapter = mAdapter
+        _binding!!.recyclerview.layoutManager = LinearLayoutManager(requireContext())
         showShimmerEffect()
     }
 
@@ -108,11 +111,17 @@ class RecipesFragment : Fragment() {
     }
 
     private fun showShimmerEffect() {
-        _binding!!.recylerview.showShimmer()
+        _binding!!.recyclerview.showShimmer()
     }
 
     private fun hideShimmerEffect() {
-        _binding!!.recylerview.hideShimmer()
+        _binding!!.recyclerview.hideShimmer()
+    }
+
+    //to avoid memory leaks
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding=null
     }
 
 
