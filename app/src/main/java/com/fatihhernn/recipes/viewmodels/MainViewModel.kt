@@ -17,78 +17,78 @@ import retrofit2.Response
 class MainViewModel @ViewModelInject constructor(
     private val repository: Repository,
     application: Application,
-    ) :AndroidViewModel(application){
+) : AndroidViewModel(application) {
 
     /**ROOM DATABASE*/
-    val readRecipe:LiveData<List<RecipesEntity>> = repository.local.readDatabase().asLiveData()
+    val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readDatabase().asLiveData()
 
     /**RETROFIT*/
-    var recipesResponse:MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
-    private fun insertRecipes(recipesEntity: RecipesEntity)=viewModelScope.launch(Dispatchers.IO) {
-        repository.local.insertRecipes(recipesEntity)
-    }
+    var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
+    private fun insertRecipes(recipesEntity: RecipesEntity) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.insertRecipes(recipesEntity)
+        }
 
-    fun getRecipes(queries:Map<String,String>)=viewModelScope.launch {
+    fun getRecipes(queries: Map<String, String>) = viewModelScope.launch {
         getRecipesSafeCall(queries)
     }
 
     private suspend fun getRecipesSafeCall(queries: Map<String, String>) {
-        recipesResponse.value=NetworkResult.Loading()
-        if (hasInternetConnection()){
+        recipesResponse.value = NetworkResult.Loading()
+        if (hasInternetConnection()) {
             try {
-                val response=repository.remote.getRecipes(queries)
-                recipesResponse.value=handleFoodRecipesResponse(response)
+                val response = repository.remote.getRecipes(queries)
+                recipesResponse.value = handleFoodRecipesResponse(response)
 
-                val foodRecipe=recipesResponse.value!!.data
-                if (foodRecipe!=null){
+                val foodRecipe = recipesResponse.value!!.data
+                if (foodRecipe != null) {
                     offlineCacheRecipes(foodRecipe)
                 }
-            }catch (e:Exception){
-                recipesResponse.value=NetworkResult.Error("Recipes not found.")
+            } catch (e: Exception) {
+                recipesResponse.value = NetworkResult.Error("Recipes not found.")
             }
-        }
-        else{
-            recipesResponse.value=NetworkResult.Error("No Internet Connection")
+        } else {
+            recipesResponse.value = NetworkResult.Error("No Internet Connection")
         }
     }
 
     private fun offlineCacheRecipes(foodRecipe: FoodRecipe) {
-        val recipesEntity=RecipesEntity(foodRecipe)
+        val recipesEntity = RecipesEntity(foodRecipe)
         insertRecipes(recipesEntity)
     }
 
     private fun handleFoodRecipesResponse(response: Response<FoodRecipe>): NetworkResult<FoodRecipe>? {
-        when{
-            response.message().toString().contains("timeout")-> {
+        when {
+            response.message().toString().contains("timeout") -> {
                 return NetworkResult.Error("Timeout")
             }
-            response.code()==402->{
+            response.code() == 402 -> {
                 return NetworkResult.Error("API Key Limited.")
             }
-            response.body()!!.results.isNullOrEmpty()->{
+            response.body()!!.results.isNullOrEmpty() -> {
                 return NetworkResult.Error("Recipes not found")
             }
-            response.isSuccessful->{
-                val foodRecipes=response.body()
-                return  NetworkResult.Success(foodRecipes!!)
+            response.isSuccessful -> {
+                val foodRecipes = response.body()
+                return NetworkResult.Success(foodRecipes!!)
             }
-            else ->{
+            else -> {
                 return NetworkResult.Error(response.message())
             }
         }
     }
 
-    private fun hasInternetConnection():Boolean{
-            val connectivityManager=getApplication<Application>().getSystemService(
-                Context.CONNECTIVITY_SERVICE
-            ) as ConnectivityManager
-            val activeNetwork=connectivityManager.activeNetwork?:return false
-            val capabilities=connectivityManager.getNetworkCapabilities(activeNetwork)?:return false
-            return when{
-                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)->true
-                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)->true
-                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)->true
-                else->false
-            }
+    private fun hasInternetConnection(): Boolean {
+        val connectivityManager = getApplication<Application>().getSystemService(
+            Context.CONNECTIVITY_SERVICE
+        ) as ConnectivityManager
+        val activeNetwork = connectivityManager.activeNetwork ?: return false
+        val capabilities = connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
+        return when {
+            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+            else -> false
         }
+    }
 }
