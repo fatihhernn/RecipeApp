@@ -1,9 +1,8 @@
-package com.fatihhernn.recipes
+package com.fatihhernn.recipes.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.fatihhernn.recipes.data.database.RecipesDao
 
 @Database(
     entities = [RecipesEntity::class],
