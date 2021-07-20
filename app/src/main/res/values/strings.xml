@@ -6,6 +6,5 @@
     <string name="favorite_recipes_fragment">Favorite</string>
     <string name="food_joke">Joke</string>
     <string name="lorem_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
-    <string name="default_value">100</string>
-    <string name="default_value">100</string>
+    <string name="default_value">1</string>
 </resources>
