@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
+import androidx.navigation.fragment.findNavController
 import com.fatihhernn.recipes.R
 import com.fatihhernn.recipes.databinding.FragmentRecipesBinding
 import com.fatihhernn.recipes.databinding.RecipesBottomSheetBinding
@@ -68,6 +69,9 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
                 dietTypeChip,
                 dietTypeChipId
             )
+
+            val action = RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(true)
+            findNavController().navigate(action)
         }
 
         return binding.root
