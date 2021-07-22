@@ -2,10 +2,9 @@ package com.fatihhernn.recipes.ui.fragments.recipes
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -28,7 +27,7 @@ import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
-class RecipesFragment : Fragment() {
+class RecipesFragment : Fragment(),SearchView.OnQueryTextListener {
 
     private val args by navArgs<RecipesFragmentArgs>()
 
@@ -55,6 +54,7 @@ class RecipesFragment : Fragment() {
         binding.lifecycleOwner=viewLifecycleOwner
         binding.mainViewModel=mainViewModel
 
+        setHasOptionsMenu(true)
 
         setupRecyclerView()
         recipesViewModel.readBackOnline.observe(viewLifecycleOwner,{
@@ -85,6 +85,21 @@ class RecipesFragment : Fragment() {
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.recipes_menu,menu)
+
+        val search=menu.findItem(R.id.menu_search)
+        val searchView=search.actionView as? SearchView
+        searchView?.isSubmitButtonEnabled=true
+        searchView?.setOnQueryTextListener(this)
+    }
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return  true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        return true
+    }
 
     private fun setupRecyclerView() {
         _binding!!.recyclerview.adapter = mAdapter
@@ -157,6 +172,8 @@ class RecipesFragment : Fragment() {
         super.onDestroy()
         _binding=null
     }
+
+
 
 
 }
