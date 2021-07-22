@@ -61,8 +61,9 @@ class RecipesFragment : Fragment() {
             recipesViewModel.backOnline=it
         })
 
-
-        lifecycleScope.launch {
+        /** LifecycleScope.launchWhenStarted is used instead of lifecycleScope.launch.
+         * Because .collect only causes an error when used with launch */
+        lifecycleScope.launchWhenStarted {
             networkListener=NetworkListener()
             networkListener.checkNetworkAvailability(requireContext()).collect { status ->
                 Log.d("NetworkListener",status.toString())
