@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/main_imageView"
         android:layout_width="0dp"
         android:layout_height="250dp"
         android:scaleType="centerCrop"
@@ -23,10 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:background="@drawable/gradient_overlay"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/main_imageView"
+        app:layout_constraintEnd_toEndOf="@+id/main_imageView"
+        app:layout_constraintStart_toStartOf="@+id/main_imageView"
+        app:layout_constraintTop_toTopOf="@+id/main_imageView"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/main_imageView"
         app:layout_constraintEnd_toEndOf="@+id/gradient_overlay" />
 
     <ImageView
@@ -62,7 +62,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/main_imageView"
         app:layout_constraintEnd_toStartOf="@+id/time_textView" />
 
     <ImageView
@@ -89,7 +89,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/main_imageView" />
 
     <ImageView
         android:id="@+id/vegeterian_imageView"
@@ -112,7 +112,7 @@
         app:layout_constraintTop_toTopOf="@+id/vegeterian_imageView" />
 
     <ImageView
-        android:id="@+id/vegeterian_imageView2"
+        android:id="@+id/vegan_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -122,14 +122,14 @@
         app:tint="@color/darkGray" />
 
     <TextView
-        android:id="@+id/vegetarian_textView2"
+        android:id="@+id/vegan_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/vegan"
-        app:layout_constraintBottom_toBottomOf="@+id/vegeterian_imageView2"
-        app:layout_constraintStart_toEndOf="@+id/vegeterian_imageView2"
-        app:layout_constraintTop_toTopOf="@+id/vegeterian_imageView2" />
+        app:layout_constraintBottom_toBottomOf="@+id/vegan_imageView"
+        app:layout_constraintStart_toEndOf="@+id/vegan_imageView"
+        app:layout_constraintTop_toTopOf="@+id/vegan_imageView" />
 
     <ImageView
         android:id="@+id/dairy_free_imageView"
@@ -223,7 +223,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vegeterian_imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/vegan_imageView">
 
         <LinearLayout
             android:layout_width="match_parent"
