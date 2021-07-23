@@ -12,6 +12,7 @@ import com.fatihhernn.recipes.databinding.ActivityDetailBinding
 import com.fatihhernn.recipes.ui.fragments.ingredients.IngredientsFragment
 import com.fatihhernn.recipes.ui.fragments.instructions.InstructionsFragment
 import com.fatihhernn.recipes.ui.fragments.overview.OverviewFragment
+import com.fatihhernn.recipes.util.Constants.Companion.RECIPE_RESULT_KEY
 
 class DetailActivity : AppCompatActivity() {
 
@@ -39,7 +40,7 @@ class DetailActivity : AppCompatActivity() {
         titles.add("Instructions")
 
         val resultBundle=Bundle()
-        resultBundle.putParcelable("recipeBundle",args.result)
+        resultBundle.putParcelable(RECIPE_RESULT_KEY,args.result)
 
         val adapter=PagerAdapter(resultBundle,fragments,titles,supportFragmentManager)
         binding.viewPager.adapter=adapter
