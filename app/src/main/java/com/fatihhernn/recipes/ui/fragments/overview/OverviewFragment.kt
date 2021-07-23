@@ -11,6 +11,7 @@ import com.fatihhernn.recipes.R
 import com.fatihhernn.recipes.databinding.FragmentOverviewBinding
 import com.fatihhernn.recipes.databinding.FragmentRecipesBinding
 import com.fatihhernn.recipes.models.Result
+import org.jsoup.Jsoup
 
 class OverviewFragment : Fragment() {
 
@@ -21,14 +22,21 @@ class OverviewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        _binding = FragmentOverviewBinding.inflate(inflater, container, false)
+
         val args=arguments
         val myBundle:Result ? =args?.getParcelable("recipeBundle")
 
         binding.mainImageView.load(myBundle?.image)
         binding.titleTextView.text=myBundle?.title
         binding.likesTextView.text=myBundle?.aggregateLikes.toString()
-        binding.titleTextView.text=myBundle?.readyInMinutes.toString()
-        binding.summaryTextView.text=myBundle?.summary.toString()
+        binding.timeTextView.text=myBundle?.readyInMinutes.toString()
+        //binding.summaryTextView.text=myBundle?.summary.toString()
+        myBundle?.summary.let {
+            val summary=Jsoup.parse(it).text()
+            binding.summaryTextView.text=summary
+        }
 
         if (myBundle?.vegetarian==true){
             binding.vegeterianImageView.setColorFilter(ContextCompat.getColor(requireContext(),R.color.green))
@@ -55,7 +63,7 @@ class OverviewFragment : Fragment() {
             binding.cheapTextView.setTextColor(ContextCompat.getColor(requireContext(),R.color.green))
         }
 
-        _binding = FragmentOverviewBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 }
