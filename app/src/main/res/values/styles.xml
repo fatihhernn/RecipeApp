@@ -7,10 +7,10 @@
     </style>
 
     <style name="DetailsActivityStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <color name="colorPrimary">#6200EA</color>
-        <color name="colorPrimaryDark">#5502C8</color>
-        <color name="colorAccent">#9D46FF</color>
-        <color name="colorControlNormal">@color/white</color>
+        <item name="colorPrimary">#6200EA</item>
+        <item name="colorPrimaryDark">#5502C8</item>
+        <item name="colorAccent">#9D46FF</item>
+        <item name="colorControlNormal">@color/white</item>
         <item name="android:statusBarColor">@color/colorPrimary</item>
     </style>
 

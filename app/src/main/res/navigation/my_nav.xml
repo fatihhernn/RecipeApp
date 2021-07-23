@@ -17,6 +17,9 @@
             android:name="backFromBottomSheet"
             app:argType="boolean"
             android:defaultValue="false" />
+        <action
+            android:id="@+id/action_recipesFragment_to_detailActivity"
+            app:destination="@id/detailsActivity" />
     </fragment>
     <fragment
         android:id="@+id/favoriteRecipesFragment"
@@ -40,4 +43,13 @@
 
 
     </dialog>
+    <activity
+        android:id="@+id/detailsActivity"
+        android:name="com.fatihhernn.recipes.ui.DetailActivity"
+        android:label="Details"
+        tools:layout="@layout/activity_detail" >
+        <argument
+            android:name="result"
+            app:argType="com.fatihhernn.recipes.models.Result" />
+    </activity>
 </navigation>
