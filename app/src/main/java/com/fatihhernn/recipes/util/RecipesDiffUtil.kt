@@ -1,6 +1,7 @@
 package com.fatihhernn.recipes.util
 
 import androidx.recyclerview.widget.DiffUtil
+import com.fatihhernn.recipes.data.database.entities.FavoritesEntity
 import com.fatihhernn.recipes.models.Result
 
 class RecipesDiffUtil<T>(
