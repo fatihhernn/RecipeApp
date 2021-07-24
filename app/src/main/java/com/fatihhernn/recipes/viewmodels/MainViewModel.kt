@@ -7,6 +7,7 @@ import android.net.NetworkCapabilities
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.fatihhernn.recipes.data.Repository
+import com.fatihhernn.recipes.data.database.entities.FavoritesEntity
 import com.fatihhernn.recipes.data.database.entities.RecipesEntity
 import com.fatihhernn.recipes.models.FoodRecipe
 import com.fatihhernn.recipes.util.NetworkResult
@@ -21,6 +22,7 @@ class MainViewModel @ViewModelInject constructor(
 
     /**ROOM DATABASE*/
     val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readRecipes().asLiveData()
+    val readFavoriteRecipes:LiveData<List<FavoritesEntity>> =repository.local   .readFavoriteRecipes().asLiveData()
 
     /**RETROFIT*/
     var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
@@ -31,6 +33,16 @@ class MainViewModel @ViewModelInject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertRecipes(recipesEntity)
         }
+
+    private fun insertFavoriteRecipe(favoritesEntity: FavoritesEntity)= viewModelScope.launch(Dispatchers.IO) {
+        repository.local.insertFavoriteRecipes(favoritesEntity)
+    }
+    private fun deleteFavoriteRecipe(favoritesEntity: FavoritesEntity)=viewModelScope.launch(Dispatchers.IO ) {
+        repository.local.deleteFavoriteRecipes(favoritesEntity)
+    }
+    private fun deleteAllFavoriteRecipes()=viewModelScope.launch(Dispatchers.IO ) {
+        repository.local.deleteAllFavoriteRecipes()
+    }
 
     fun getRecipes(queries: Map<String, String>) = viewModelScope.launch {
         getRecipesSafeCall(queries)

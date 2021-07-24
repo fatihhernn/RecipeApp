@@ -17,10 +17,10 @@ class LocalDataSource @Inject constructor(
         return recipesDao.insertRecipes(recipesEntity)
     }
 
+
     fun readFavoriteRecipes():Flow<List<FavoritesEntity>>{
         return recipesDao.readFavoriteRecipes()
     }
-
     suspend fun insertFavoriteRecipes(favoritesEntity: FavoritesEntity){
         recipesDao.insertFavoriteRecipe(favoritesEntity)
     }
@@ -28,6 +28,6 @@ class LocalDataSource @Inject constructor(
         recipesDao.deleteFavoriteRecipe(favoritesEntity)
     }
     suspend fun deleteAllFavoriteRecipes(){
-        recipesDao.deleteFavoriteRecipe()
+        recipesDao.deleteAllFavoriteRecipes()
     }
 }
