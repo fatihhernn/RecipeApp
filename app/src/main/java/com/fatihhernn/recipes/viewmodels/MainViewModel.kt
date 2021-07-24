@@ -7,7 +7,7 @@ import android.net.NetworkCapabilities
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.fatihhernn.recipes.data.Repository
-import com.fatihhernn.recipes.data.database.RecipesEntity
+import com.fatihhernn.recipes.data.database.entities.RecipesEntity
 import com.fatihhernn.recipes.models.FoodRecipe
 import com.fatihhernn.recipes.util.NetworkResult
 import kotlinx.coroutines.Dispatchers

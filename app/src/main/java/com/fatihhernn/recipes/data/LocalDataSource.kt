@@ -1,7 +1,7 @@
 package com.fatihhernn.recipes.data
 
 import com.fatihhernn.recipes.data.database.RecipesDao
-import com.fatihhernn.recipes.data.database.RecipesEntity
+import com.fatihhernn.recipes.data.database.entities.RecipesEntity
 import kotlinx.coroutines.flow.Flow
 
 import javax.inject.Inject
