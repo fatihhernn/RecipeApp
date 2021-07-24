@@ -20,7 +20,7 @@ class MainViewModel @ViewModelInject constructor(
 ) : AndroidViewModel(application) {
 
     /**ROOM DATABASE*/
-    val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readDatabase().asLiveData()
+    val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readRecipes().asLiveData()
 
     /**RETROFIT*/
     var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
