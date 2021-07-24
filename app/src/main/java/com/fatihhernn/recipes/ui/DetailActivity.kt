@@ -2,6 +2,7 @@ package com.fatihhernn.recipes.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -45,6 +46,12 @@ class DetailActivity : AppCompatActivity() {
         val adapter=PagerAdapter(resultBundle,fragments,titles,supportFragmentManager)
         binding.viewPager.adapter=adapter
         binding.tabLayout.setupWithViewPager(binding.viewPager)
+    }
+
+    /** Favorite Icon */
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.details_menu,menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
