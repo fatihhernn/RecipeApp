@@ -16,7 +16,6 @@ import com.fatihhernn.recipes.R
 import com.fatihhernn.recipes.viewmodels.MainViewModel
 import com.fatihhernn.recipes.adapters.RecipesAdapter
 import com.fatihhernn.recipes.databinding.FragmentRecipesBinding
-import com.fatihhernn.recipes.util.Constants.Companion.API_KEY
 import com.fatihhernn.recipes.util.NetworkListener
 import com.fatihhernn.recipes.util.NetworkResult
 import com.fatihhernn.recipes.util.observeOnce
@@ -157,7 +156,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
     private fun searchApiData(searchQuery: String) {
         showShimmerEffect()
         mainViewModel.searchRecipes(recipesViewModel.applySearchQuery(searchQuery))
-        mainViewModel.seachedRecipesResponse.observe(viewLifecycleOwner, { response ->
+        mainViewModel.searchedRecipesResponse.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is NetworkResult.Success -> {
                     hideShimmerEffect()
