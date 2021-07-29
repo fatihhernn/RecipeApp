@@ -19,6 +19,8 @@ class FavoriteRecipesAdapter(
 
     private var favoriteRecipes = emptyList<FavoritesEntity>()
 
+    private lateinit var mActionMode:ActionMode
+
     private var multiSelection=false
     private var myViewHolders= arrayListOf<MyViewHolder>()
     private var selectedRecipes= arrayListOf<FavoritesEntity>()
@@ -83,14 +85,19 @@ class FavoriteRecipesAdapter(
 
         }
     }
+
+    override fun getItemCount(): Int = favoriteRecipes.size
+
     private fun applySelection(holder:MyViewHolder,currenRecipe:FavoritesEntity){
         if (selectedRecipes.contains(currenRecipe)){
             selectedRecipes.remove(currenRecipe)
             changeRecipeStyle(holder,R.color.cardBackgroundColor,R.color.strokeColor)
+            applyActionModeTitle()
 
         }else{
             selectedRecipes.add(currenRecipe)
             changeRecipeStyle(holder,R.color.cardBackgroundLightColor,R.color.colorPrimary)
+            applyActionModeTitle()
         }
     }
     private fun changeRecipeStyle(holder:MyViewHolder,backgroundColor:Int,strokeColor: Int){
@@ -100,10 +107,20 @@ class FavoriteRecipesAdapter(
         holder.binding.favoriteRowCardView.strokeColor=ContextCompat.getColor(requireActivity,strokeColor)
     }
 
-    override fun getItemCount(): Int = favoriteRecipes.size
+    private fun applyActionModeTitle(){
+        when(selectedRecipes.size){
+            0->mActionMode.finish()
+            1->mActionMode.title="${selectedRecipes.size} item selected"
+            else->mActionMode.title="${selectedRecipes.size} items selected"
+        }
+    }
+    private fun applyStatusBarColor(color:Int){
+        requireActivity.window.statusBarColor=ContextCompat.getColor(requireActivity,color)
+    }
 
     override fun onCreateActionMode(actionMode: ActionMode, menu: Menu?): Boolean {
         actionMode.menuInflater.inflate(R.menu.favorites_contextual_menu, menu)
+        mActionMode=actionMode!!
         applyStatusBarColor(R.color.contextualStatusBarColor)
         return true
     }
@@ -124,9 +141,6 @@ class FavoriteRecipesAdapter(
         multiSelection=false
         selectedRecipes.clear()
         applyStatusBarColor(R.color.statusBarColor)
-    }
-    private fun applyStatusBarColor(color:Int){
-        requireActivity.window.statusBarColor=ContextCompat.getColor(requireActivity,color)
     }
 
     fun setData(newFavoriteRecipes: List<FavoritesEntity>) {
