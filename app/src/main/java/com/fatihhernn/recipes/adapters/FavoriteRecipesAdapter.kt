@@ -173,4 +173,10 @@ class FavoriteRecipesAdapter(
             Snackbar.LENGTH_LONG
         ).setAction("Okay"){}.show()
     }
+
+    fun clearContextualActionMode(){
+        if(this::mActionMode.isInitialized){
+            mActionMode.finish()
+        }
+    }
 }
