@@ -5,6 +5,8 @@
     <color name="colorPrimaryDark">#5502C8</color>
     <color name="colorAccent">#9D46FF</color>
 
+    <color name="backgroundColor">@color/white</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -29,8 +31,21 @@
     <color name="checkChipTextColor">@color/colorPrimary</color>
     <color name="chipTextColor">@color/darkGray</color>
 
-    <color name="actionBarBackgroundColor">@color/colorPrimary</color>
+    // Custom CardView Style
     <color name="strokeColor">@color/lightMediumGray</color>
-    <color name="backgroundColor">@color/white</color>
+    <color name="cardBackgroundColor">@color/white</color>
+    <color name="cardBackgroundLightColor">#106200EA</color>
     <color name="titleColor">@color/darker</color>
+    <color name="descriptionColor">@color/darkGray</color>
+
+    <color name="actionBarBackgroundColor">@color/colorPrimary</color>
+    <color name="statusBarColor">@color/colorPrimaryDark</color>
+    <color name="contextualStatusBarColor">@color/darker</color>
+    <color name="contextualActionBarColor">@color/dark</color>
+
+
+    // Custom BottomNavigationView Style
+    <color name="bottomNavBackground">@color/white</color>
+    <color name="bottomNavItemColor">@color/darkGray</color>
+    <color name="bottomNavCheckedItemColor">@color/colorPrimary</color>
 </resources>

@@ -26,7 +26,7 @@ class MainViewModel @ViewModelInject constructor(
 
     /**RETROFIT*/
     var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
-    var seachedRecipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
+    var searchedRecipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
 
 
     private fun insertRecipes(recipesEntity: RecipesEntity) =
@@ -40,7 +40,7 @@ class MainViewModel @ViewModelInject constructor(
     fun deleteFavoriteRecipe(favoritesEntity: FavoritesEntity)=viewModelScope.launch(Dispatchers.IO ) {
         repository.local.deleteFavoriteRecipes(favoritesEntity)
     }
-     private fun deleteAllFavoriteRecipes()=viewModelScope.launch(Dispatchers.IO ) {
+    fun deleteAllFavoriteRecipes()=viewModelScope.launch(Dispatchers.IO ) {
         repository.local.deleteAllFavoriteRecipes()
     }
 
@@ -71,16 +71,16 @@ class MainViewModel @ViewModelInject constructor(
         }
     }
     private suspend fun searchRecipesSafeCall(seachQuery: Map<String, String>) {
-        seachedRecipesResponse.value = NetworkResult.Loading()
+        searchedRecipesResponse.value = NetworkResult.Loading()
         if (hasInternetConnection()) {
             try {
                 val response = repository.remote.searchRecipes(seachQuery)
-                seachedRecipesResponse.value = handleFoodRecipesResponse(response)
+                searchedRecipesResponse.value = handleFoodRecipesResponse(response)
             } catch (e: Exception) {
-                seachedRecipesResponse.value = NetworkResult.Error("Recipes not found.")
+                searchedRecipesResponse.value = NetworkResult.Error("Recipes not found.")
             }
         } else {
-            seachedRecipesResponse.value = NetworkResult.Error("No Internet Connection")
+            searchedRecipesResponse.value = NetworkResult.Error("No Internet Connection")
         }
     }
 
