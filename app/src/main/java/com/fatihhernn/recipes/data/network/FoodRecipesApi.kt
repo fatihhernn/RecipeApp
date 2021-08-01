@@ -1,5 +1,6 @@
 package com.fatihhernn.recipes.data.network
 
+import com.fatihhernn.recipes.models.FoodJoke
 import com.fatihhernn.recipes.models.FoodRecipe
 import retrofit2.Response
 import retrofit2.http.GET
@@ -19,4 +20,9 @@ interface FoodRecipesApi {
     suspend fun searchRecipes(
         @QueryMap searchQuery: Map<String,String>
     ):Response<FoodRecipe>
+
+    @GET("/food/jokes/random")
+    suspend fun getFoodJoke(
+        @Query("apiKey") apiKey:String
+    ):Response<FoodJoke>
 }

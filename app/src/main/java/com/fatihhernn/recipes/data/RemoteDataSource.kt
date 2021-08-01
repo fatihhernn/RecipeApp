@@ -1,6 +1,7 @@
 package com.fatihhernn.recipes.data
 
 import com.fatihhernn.recipes.data.network.FoodRecipesApi
+import com.fatihhernn.recipes.models.FoodJoke
 import com.fatihhernn.recipes.models.FoodRecipe
 import retrofit2.Response
 import javax.inject.Inject
@@ -14,9 +15,13 @@ class RemoteDataSource @Inject constructor(
         return foodRecipesApi.getRecipes(queries)
     }
 
-    suspend fun searchRecipes(seachQuery:Map<String,String>
+    suspend fun searchRecipes(searchQuery:Map<String,String>
     ): Response<FoodRecipe>{
-        return foodRecipesApi.getRecipes(seachQuery)
+        return foodRecipesApi.searchRecipes(searchQuery)
+    }
+
+    suspend fun getFoodJoke(apiKey:String):Response<FoodJoke>{
+        return foodRecipesApi.getFoodJoke()
     }
 
 }
