@@ -21,7 +21,7 @@ class RemoteDataSource @Inject constructor(
     }
 
     suspend fun getFoodJoke(apiKey:String):Response<FoodJoke>{
-        return foodRecipesApi.getFoodJoke()
+        return foodRecipesApi.getFoodJoke(apiKey)
     }
 
 }
