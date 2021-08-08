@@ -62,6 +62,8 @@
         android:label="SplashFragment" >
         <action
             android:id="@+id/action_splashFragment_to_recipesFragment"
-            app:destination="@id/recipesFragment" />
+            app:destination="@id/recipesFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
