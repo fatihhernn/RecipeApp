@@ -30,7 +30,7 @@ class MainViewModel @ViewModelInject constructor(
     /**RETROFIT*/
     var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
     var searchedRecipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
-    private var foodJokeResponse:MutableLiveData<NetworkResult<FoodJoke>> = MutableLiveData()
+    var foodJokeResponse:MutableLiveData<NetworkResult<FoodJoke>> = MutableLiveData()
 
 
     private fun insertRecipes(recipesEntity: RecipesEntity) =
