@@ -68,6 +68,11 @@ class MainViewModel @ViewModelInject constructor(
             try {
                 val response=repository.remote.getFoodJoke(apiKey)
                 foodJokeResponse.value=handleFoodJokeResponse(response)
+
+                val foodJoke = foodJokeResponse.value!!.data
+                if (foodJoke != null) {
+                    offlineCacheFoodJoke(foodJoke)
+                }
             }catch (e:Exception){
                 foodJokeResponse.value=NetworkResult.Error("Recipes not found")
             }
