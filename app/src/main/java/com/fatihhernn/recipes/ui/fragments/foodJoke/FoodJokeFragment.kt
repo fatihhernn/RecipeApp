@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class FoodJokeFragment : Fragment() {
 
-    private var foodJoke="No Food Joke"
+    private var foodJoke=""
 
     private val mainViewModel by viewModels<MainViewModel>()
 
@@ -42,6 +42,9 @@ class FoodJokeFragment : Fragment() {
                 when(response){
                     is NetworkResult.Success -> {
                         binding.foodJokeTextView.text=response.data?.text
+                        if(response.data!=null){
+                            foodJoke=response.data.text
+                        }
                     }
                     is NetworkResult.Error ->{
                         loadDataFromCache()
