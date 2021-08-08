@@ -1,4 +1,4 @@
-package com.fatihhernn.recipes
+package com.fatihhernn.recipes.application
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

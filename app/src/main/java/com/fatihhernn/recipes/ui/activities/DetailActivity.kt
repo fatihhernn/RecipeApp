@@ -1,4 +1,4 @@
-package com.fatihhernn.recipes.ui
+package com.fatihhernn.recipes.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

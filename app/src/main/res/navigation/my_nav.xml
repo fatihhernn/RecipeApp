@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/recipesFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/recipesFragment"
@@ -49,11 +49,19 @@
     </dialog>
     <activity
         android:id="@+id/detailsActivity"
-        android:name="com.fatihhernn.recipes.ui.DetailActivity"
+        android:name="com.fatihhernn.recipes.ui.activities.DetailActivity"
         android:label="Details"
         tools:layout="@layout/activity_detail" >
         <argument
             android:name="result"
             app:argType="com.fatihhernn.recipes.models.Result" />
     </activity>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.fatihhernn.recipes.ui.fragments.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_recipesFragment"
+            app:destination="@id/recipesFragment" />
+    </fragment>
 </navigation>
