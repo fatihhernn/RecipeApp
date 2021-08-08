@@ -20,7 +20,7 @@ class RecipesTypeConverter {
     }
 
     /**For Favorite Recipes*/
-
+        
     @TypeConverter
     fun resultToString(result: Result):String{
         return gson.toJson(result)
