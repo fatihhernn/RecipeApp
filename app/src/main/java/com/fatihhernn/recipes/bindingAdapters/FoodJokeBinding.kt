@@ -2,11 +2,13 @@ package com.fatihhernn.recipes.bindingAdapters
 
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.fatihhernn.recipes.data.database.entities.FoodJokeEntity
 import com.fatihhernn.recipes.models.FoodJoke
 import com.fatihhernn.recipes.util.NetworkResult
 import com.google.android.material.card.MaterialCardView
+import org.w3c.dom.Text
 
 class FoodJokeBinding {
 
@@ -56,6 +58,28 @@ class FoodJokeBinding {
                         }
                     }
                 }
+            }
+        }
+
+        @BindingAdapter("readApiResponse4","readDatabase4",requireAll = true)
+        @JvmStatic
+        fun setErrorView(
+            view:View,
+            apiResponse:NetworkResult<FoodJoke>?,
+            database:List<FoodJokeEntity>?
+        ){
+            if (database!=null){
+                if (database.isEmpty()) {
+                    view.visibility=View.VISIBLE
+                    if (view is TextView){
+                        if (apiResponse!=null){
+                            view.text=apiResponse.message.toString()
+                        }
+                    }
+                }
+            }
+            if(apiResponse is NetworkResult.Success){
+                view.visibility=View.INVISIBLE
             }
         }
     }
