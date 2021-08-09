@@ -17,5 +17,5 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/recipes_book_animation"
-        app:lottie_repeatCount="1" />
+        app:lottie_repeatCount="0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

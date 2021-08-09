@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    app:layoutDescription="@xml/fragment_overview_scene"
     tools:context=".ui.fragments.overview.OverviewFragment">
-
 
 
     <ImageView
@@ -137,9 +138,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:src="@drawable/ic_checkmark"
-        app:tint="@color/darkGray"
         app:layout_constraintStart_toEndOf="@+id/vegetarian_textView"
-        app:layout_constraintTop_toTopOf="@+id/vegeterian_imageView" />
+        app:layout_constraintTop_toTopOf="@+id/vegeterian_imageView"
+        app:tint="@color/darkGray" />
 
     <TextView
         android:id="@+id/dairy_free_textView"
@@ -178,10 +179,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:src="@drawable/ic_checkmark"
-        app:tint="@color/darkGray"
         app:layout_constraintBottom_toBottomOf="@+id/dairy_free_textView"
         app:layout_constraintStart_toEndOf="@+id/dairy_free_textView"
-        app:layout_constraintTop_toTopOf="@+id/dairy_free_textView" />
+        app:layout_constraintTop_toTopOf="@+id/dairy_free_textView"
+        app:tint="@color/darkGray" />
 
     <TextView
         android:id="@+id/healthy_textView"
@@ -214,6 +215,7 @@
         app:layout_constraintTop_toTopOf="@+id/cheap_imageView" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
@@ -228,16 +230,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/summary_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
