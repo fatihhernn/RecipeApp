@@ -95,10 +95,9 @@
                     android:id="@+id/favorite_heart_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100"
+                    android:text="@{String.valueOf(favoritesEntity.result.aggregateLikes)}"
                     android:textColor="@color/red"
                     android:textAlignment="center"
-                    setNumberOfLikes="@{favoritesEntity.result.aggregateLikes}"
                     app:layout_constraintStart_toStartOf="@+id/favorite_description_textView"
                     app:layout_constraintTop_toBottomOf="@+id/favorite_heart_imageView" />
 
@@ -117,8 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:text="100"
-                    setNumberOfMinutes="@{favoritesEntity.result.readyInMinutes}"
+                    android:text="@{String.valueOf(favoritesEntity.result.readyInMinutes)}"
                     android:textAlignment="center"
                     android:textColor="@color/yellow"
                     app:layout_constraintStart_toEndOf="@+id/favorite_heart_textView"
