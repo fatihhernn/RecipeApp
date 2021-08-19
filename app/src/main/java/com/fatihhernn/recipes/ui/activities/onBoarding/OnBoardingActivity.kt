@@ -1,5 +1,6 @@
 package com.fatihhernn.recipes.ui.activities.onBoarding
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.fatihhernn.recipes.models.onBoarding.OnBoardingData
 import com.fatihhernn.recipes.R
+import com.fatihhernn.recipes.data.database.sharedPref.SharedPrefManager
 import com.fatihhernn.recipes.databinding.ActivityOnBoardingStartBinding
 import com.fatihhernn.recipes.ui.activities.AuthActivity
 import com.fatihhernn.recipes.util.Animato
@@ -19,7 +21,6 @@ class OnBoardingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOnBoardingStartBinding
     private lateinit var viewPager2: ViewPager2
-    var sharedPreferences: SharedPreferences? = null
 
     private var itemList=ArrayList<OnBoardingData>()
 
@@ -28,7 +29,9 @@ class OnBoardingActivity : AppCompatActivity() {
 
         supportActionBar?.hide();
 
-        if(restorePrefData()) {
+        //val token=getToken()
+
+        if(isOnboardingSeen()) {
             val intent = Intent(applicationContext, AuthActivity::class.java)
             startActivity(intent)
             finish()
@@ -101,7 +104,7 @@ class OnBoardingActivity : AppCompatActivity() {
             zoomOutPageTransformer.transformPage(page, position)
         }
 
-        savePrefData()
+        setOnBoardingSeen()
 
         //indicator yönetimi
         wormDotsIndicator.setViewPager2(viewPager2)
@@ -154,15 +157,12 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
 
-    private fun restorePrefData() : Boolean{
-        sharedPreferences = applicationContext.getSharedPreferences("pref", MODE_PRIVATE)
-        return sharedPreferences!!.getBoolean("isFirstTimeRun", false)
 
+    private fun setOnBoardingSeen(){
+         SharedPrefManager(applicationContext).setOnboardingSeen()
     }
-    private fun savePrefData() {
-        sharedPreferences = applicationContext.getSharedPreferences("pref", MODE_PRIVATE)
-        val editor = sharedPreferences!!.edit()
-        editor.putBoolean("isFirstTimeRun", true)
-        editor.apply()
+
+    private fun isOnboardingSeen(): Boolean {
+        return SharedPrefManager(applicationContext).isOnboardingSeen()
     }
 }

@@ -1,5 +1,6 @@
 package com.fatihhernn.recipes.ui.fragments.register
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -63,7 +64,13 @@ class RegisterFragment : Fragment() {
                             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                         }
                         Resource.Status.ERROR ->{
-                            Toast.makeText(context,"Register is failure! ${it.message}", Toast.LENGTH_LONG).show()
+                            val dialog = AlertDialog.Builder(context)
+                                .setTitle("Error")
+                                .setMessage("${it.message}")
+                                .setPositiveButton("ok") { dialog, button ->
+                                    dialog.dismiss()
+                                }
+                            dialog.show()
                             _binding.progressBar3.gone()
                         }
                     }
@@ -71,6 +78,7 @@ class RegisterFragment : Fragment() {
             )
         }
     }
+
 
 
 }

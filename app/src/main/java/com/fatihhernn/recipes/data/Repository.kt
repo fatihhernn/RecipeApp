@@ -34,4 +34,7 @@ class Repository @Inject constructor(
         val token= sharedLocalDataSource.getToken()
         return token
     }
+    fun logOut() {
+        sharedLocalDataSource.saveToken("")
+    }
 }
