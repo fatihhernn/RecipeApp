@@ -26,6 +26,7 @@ class OnBoardingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        supportActionBar?.hide();
 
         if(restorePrefData()) {
             val intent = Intent(applicationContext, AuthActivity::class.java)
