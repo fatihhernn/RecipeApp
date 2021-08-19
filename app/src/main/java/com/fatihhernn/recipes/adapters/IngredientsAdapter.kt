@@ -20,7 +20,7 @@ class IngredientsAdapter:RecyclerView.Adapter<IngredientsAdapter.MyViewHolder>()
     class MyViewHolder(itemView:View):RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.ingredients_row_layout,parent,false))
+            return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.ingredients_row_layout,parent,false))
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

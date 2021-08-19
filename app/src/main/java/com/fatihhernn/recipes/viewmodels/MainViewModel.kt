@@ -149,21 +149,21 @@ class MainViewModel @ViewModelInject constructor(
     }
 
     private fun handleFoodJokeResponse(response: Response<FoodJoke>): NetworkResult<FoodJoke>? {
-        return when {
-            response.message().toString().contains("timeout") -> {
-                NetworkResult.Error("Timeout")
+            return when {
+                response.message().toString().contains("timeout") -> {
+                    NetworkResult.Error("Timeout")
+                }
+                response.code() == 402 -> {
+                    NetworkResult.Error("API Key Limited.")
+                }
+                response.isSuccessful -> {
+                    val foodJoke = response.body()
+                    NetworkResult.Success(foodJoke!!)
+                }
+                else -> {
+                    NetworkResult.Error(response.message())
+                }
             }
-            response.code() == 402 -> {
-                NetworkResult.Error("API Key Limited.")
-            }
-            response.isSuccessful -> {
-                val foodJoke = response.body()
-                NetworkResult.Success(foodJoke!!)
-            }
-            else -> {
-                NetworkResult.Error(response.message())
-            }
-        }
     }
 
     private fun hasInternetConnection(): Boolean {
@@ -179,4 +179,5 @@ class MainViewModel @ViewModelInject constructor(
             else -> false
         }
     }
+
 }

@@ -35,7 +35,7 @@ class SplashFragment : Fragment() {
             }
 
             override fun onAnimationEnd(animation: Animator?) {
-                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToRecipesFragment())
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
             }
 
             override fun onAnimationCancel(animation: Animator?) {

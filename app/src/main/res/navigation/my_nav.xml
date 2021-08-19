@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/recipesFragment">
 
     <fragment
         android:id="@+id/recipesFragment"
@@ -58,14 +58,4 @@
             android:name="result"
             app:argType="com.fatihhernn.recipes.models.Result" />
     </activity>
-    <fragment
-        android:id="@+id/splashFragment"
-        android:name="com.fatihhernn.recipes.ui.fragments.splash.SplashFragment"
-        android:label="SplashFragment" >
-        <action
-            android:id="@+id/action_splashFragment_to_recipesFragment"
-            app:destination="@id/recipesFragment"
-            app:popUpTo="@id/splashFragment"
-            app:popUpToInclusive="true"/>
-    </fragment>
 </navigation>
