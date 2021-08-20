@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.fatihhernn.recipes.databinding.RecipesRowLayoutBinding
+import com.fatihhernn.recipes.databinding.RecipeRowLayoutBinding
 import com.fatihhernn.recipes.models.FoodRecipe
 import com.fatihhernn.recipes.models.Result
 import com.fatihhernn.recipes.util.RecipesDiffUtil
@@ -14,7 +14,7 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
 
     private var recipes= emptyList<Result>()
 
-    class MyViewHolder(private val binding: RecipesRowLayoutBinding) :
+    class MyViewHolder(private val binding: RecipeRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
             fun bind(result: Result){
@@ -25,7 +25,7 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
         companion object{
             fun from(parent:ViewGroup):MyViewHolder{
                 val layoutInflater=LayoutInflater.from(parent.context)
-                val binding=RecipesRowLayoutBinding.inflate(layoutInflater,parent,false)
+                val binding=RecipeRowLayoutBinding.inflate(layoutInflater,parent,false)
                 return MyViewHolder(binding)
             }
         }

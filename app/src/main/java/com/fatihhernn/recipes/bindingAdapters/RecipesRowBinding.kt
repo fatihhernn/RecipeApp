@@ -10,7 +10,7 @@ import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
 import coil.load
 import com.fatihhernn.recipes.R
-import com.fatihhernn.recipes.databinding.RecipesRowLayoutBinding
+import com.fatihhernn.recipes.databinding.RecipeRowLayoutBinding
 import com.fatihhernn.recipes.models.Result
 import com.fatihhernn.recipes.ui.fragments.recipes.RecipesFragment
 import com.fatihhernn.recipes.ui.fragments.recipes.RecipesFragmentDirections

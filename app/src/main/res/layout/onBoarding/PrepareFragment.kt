@@ -1,11 +1,11 @@
-package com.fatihhernn.onboardingviewpager.fragments
+package layout.onBoarding
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.teambhomework3.databinding.FragmentPrepareBinding
+import com.fatihhernn.recipes.databinding.FragmentPrepareBinding
 import com.fatihhernn.recipes.models.onBoarding.OnBoardingData
 
 class PrepareFragment(private val data: OnBoardingData):Fragment() {

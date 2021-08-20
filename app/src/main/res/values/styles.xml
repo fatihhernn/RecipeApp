@@ -39,5 +39,11 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
+
+    <style name="RecipeCardStyle">
+        <item name="cardBackgroundColor">#ffffff</item>
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">16dp</item>
+    </style>
 "
 </resources>

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.teambhomework3.databinding.FragmentDeliveryBinding
+import com.fatihhernn.recipes.databinding.FragmentDeliveryBinding
 import com.fatihhernn.recipes.models.onBoarding.OnBoardingData
 
 
