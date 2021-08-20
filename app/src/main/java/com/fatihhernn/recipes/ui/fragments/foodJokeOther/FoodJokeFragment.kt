@@ -1,4 +1,4 @@
-package com.fatihhernn.recipes.ui.fragments.foodJoke
+package com.fatihhernn.recipes.ui.fragments.foodJokeOther
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.fatihhernn.recipes.R
-import com.fatihhernn.recipes.databinding.FragmentFoodJokeBinding
+import com.fatihhernn.recipes.databinding.FragmentOtherBinding
 import com.fatihhernn.recipes.util.Constants.Companion.API_KEY
 import com.fatihhernn.recipes.util.NetworkResult
 import com.fatihhernn.recipes.viewmodels.MainViewModel
@@ -23,7 +23,7 @@ class FoodJokeFragment : Fragment() {
 
     private val mainViewModel by viewModels<MainViewModel>()
 
-    private var _binding:FragmentFoodJokeBinding?=null
+    private var _binding:FragmentOtherBinding?=null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -31,7 +31,7 @@ class FoodJokeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
-        _binding= FragmentFoodJokeBinding.inflate(inflater,container,false)
+        _binding= FragmentOtherBinding.inflate(inflater,container,false)
 
         binding.lifecycleOwner=viewLifecycleOwner
         binding.mainViewModel=mainViewModel
