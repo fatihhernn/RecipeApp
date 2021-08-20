@@ -2,7 +2,7 @@ package com.fatihhernn.recipes.util
 
 class Constants {
     companion object{
-        const val API_KEY="5f4fae60dba24eee90ffcb754c28259a"
+        const val API_KEY="e6db03ead59d486a8c3d4b7cf0d2cf5e"
 
         const val BASE_URL="https://api.spoonacular.com"
         const val BASE_IMAGE_URL="https://spoonacular.com/cdn/ingredients_100x100/"

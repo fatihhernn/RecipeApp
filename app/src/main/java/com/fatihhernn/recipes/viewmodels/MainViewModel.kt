@@ -166,6 +166,12 @@ class MainViewModel @ViewModelInject constructor(
             }
     }
 
+
+    fun logOut() {
+        repository.logOut()
+    }
+
+
     private fun hasInternetConnection(): Boolean {
         val connectivityManager = getApplication<Application>().getSystemService(
             Context.CONNECTIVITY_SERVICE

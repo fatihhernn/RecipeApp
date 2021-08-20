@@ -8,8 +8,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.fatihhernn.recipes.R
 import com.fatihhernn.recipes.databinding.FragmentOtherBinding
+import com.fatihhernn.recipes.ui.activities.AuthActivity
 import com.fatihhernn.recipes.util.Constants.Companion.API_KEY
 import com.fatihhernn.recipes.util.NetworkResult
 import com.fatihhernn.recipes.viewmodels.MainViewModel
@@ -32,6 +34,8 @@ class FoodJokeFragment : Fragment() {
     ): View? {
         setHasOptionsMenu(true)
         _binding= FragmentOtherBinding.inflate(inflater,container,false)
+
+        addListeners()
 
         binding.lifecycleOwner=viewLifecycleOwner
         binding.mainViewModel=mainViewModel
@@ -86,6 +90,14 @@ class FoodJokeFragment : Fragment() {
                     binding.foodJokeTextView.text=database[0].foodJoke.text
                 }
             })
+        }
+    }
+    private fun addListeners() {
+        binding.logoutCardView.setOnClickListener {
+            mainViewModel.logOut()
+            val intent = Intent(context, AuthActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
         }
     }
 
