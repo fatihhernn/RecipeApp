@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.fatihhernn.recipes.ui.fragments.onBoarding.OrderFragment
-import layout.onBoarding.PrepareFragment
 import com.fatihhernn.recipes.models.onBoarding.OnBoardingData
 import com.fatihhernn.recipes.ui.fragments.onBoarding.DeliveryFragment
 import com.fatihhernn.recipes.ui.fragments.onBoarding.EmptyFragment
+import com.fatihhernn.recipes.ui.fragments.onBoarding.PrepareFragment
 
 class ViewPagerAdapter(activity: AppCompatActivity, private val items:ArrayList<OnBoardingData>):
     FragmentStateAdapter(activity) {

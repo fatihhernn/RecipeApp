@@ -134,22 +134,22 @@ class OnBoardingActivity : AppCompatActivity() {
         val items=ArrayList<OnBoardingData>()
         items.add(
             OnBoardingData(
-                "Order Your Food",
-                "Now you can order food any time right from mobile.",
+                "Yummy Recipes are here",
+                "From easy and practical recipes, you can easily access different recipes that not everyone knows.",
                 R.drawable.ic_orderfood
             )
         )
         items.add(
             OnBoardingData(
-                "Cooking Safe Food",
-                "We're maintain safety and we keep clean while making food",
+                "Learn Examples from World Cuisine",
+                "From the most popular dishes to the newest, simple and beautiful recipes, illustrated and tried all delicious recipes, detailed explanations",
                 R.drawable.ic_safecooking
             )
         )
         items.add(
             OnBoardingData(
-                "Quick delivery",
-                "Orders your favourite meals will be immediately deliver",
+                "Instant Access to Thousands of Tariffs",
+                "Recipe page where you can find video recipes, ingredient lists and tips",
                 R.drawable.ic_deliveryfood
             )
         )

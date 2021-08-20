@@ -1,10 +1,9 @@
 package com.fatihhernn.recipes.ui.fragments.overview
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import coil.load
 import com.fatihhernn.recipes.R
@@ -14,6 +13,8 @@ import com.fatihhernn.recipes.util.Constants.Companion.RECIPE_RESULT_KEY
 import org.jsoup.Jsoup
 
 class OverviewFragment : Fragment() {
+
+    private var summary=""
 
     private var _binding: FragmentOverviewBinding? = null
     private val binding get() = _binding!!
@@ -34,7 +35,7 @@ class OverviewFragment : Fragment() {
         binding.timeTextView.text=myBundle?.readyInMinutes.toString()
         //binding.summaryTextView.text=myBundle?.summary.toString()
         myBundle?.summary.let {
-            val summary=Jsoup.parse(it).text()
+            summary=Jsoup.parse(it).text()
             binding.summaryTextView.text=summary
         }
 

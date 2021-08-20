@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".ui.activities.ProfileActivity"></activity>
         <activity android:name=".ui.activities.onBoarding.OnBoardingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.activities.AuthActivity"
             android:exported="true" />
@@ -32,9 +31,7 @@
             android:theme="@style/DetailsActivityStyle" />
         <activity
             android:name=".ui.activities.MainActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

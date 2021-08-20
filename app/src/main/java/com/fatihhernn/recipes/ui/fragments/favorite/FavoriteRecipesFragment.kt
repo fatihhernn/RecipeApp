@@ -73,4 +73,5 @@ class FavoriteRecipesFragment : Fragment() {
             Snackbar.LENGTH_LONG
         ).setAction("Okay"){}.show()
     }
+
 }

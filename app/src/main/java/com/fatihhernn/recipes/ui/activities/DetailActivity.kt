@@ -1,5 +1,6 @@
 package com.fatihhernn.recipes.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,6 +23,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
+import org.jsoup.Jsoup
 
 @AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
@@ -108,6 +110,14 @@ class DetailActivity : AppCompatActivity() {
             saveToFavorites(item)
         } else if (item.itemId == R.id.save_to_favorites_menu && recipeSaved) {
             removeFromFavorite(item)
+        }
+        else if (item.itemId == R.id.share_recipe ) {
+            val shareIntent= Intent().apply {
+                this.action= Intent.ACTION_SEND
+                this.putExtra(Intent.EXTRA_TEXT,Jsoup.parse(args.result.summary).text())
+                this.type="text/plain"
+            }
+            startActivity(shareIntent)
         }
         return super.onOptionsItemSelected(item)
     }
