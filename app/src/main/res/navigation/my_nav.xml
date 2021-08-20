@@ -32,9 +32,9 @@
     </fragment>
     <fragment
         android:id="@+id/foodJokeFragment"
-        android:name="com.fatihhernn.recipes.ui.fragments.foodJoke.FoodJokeFragment"
+        android:name="com.fatihhernn.recipes.ui.fragments.foodJokeOther.FoodJokeFragment"
         android:label="Food Joke"
-        tools:layout="@layout/fragment_food_joke" />
+        tools:layout="@layout/fragment_other" />
     <dialog
         android:id="@+id/recipesBottomSheet"
         android:name="com.fatihhernn.recipes.ui.fragments.recipes.bottomsheet.RecipesBottomSheet"
