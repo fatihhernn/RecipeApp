@@ -1,77 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
-    android:layout_height="200dp">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="200dp"
+
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:id="@+id/recipeContainer"
+        style="@style/RecipeCardStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/mediumGray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp">
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:background="@color/mediumGray"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/view"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/recipesRowLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
 
-    <View
-        android:id="@+id/view3"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/mediumGray"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
+            <ImageView
+                android:id="@+id/ivRecipe"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"
+                android:transitionName="recipeImage"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                android:background="@color/mediumGray" />
 
-    <View
-        android:id="@+id/view4"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="@color/mediumGray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/courgette"
+                android:textColor="@color/titleColor"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/ivTime"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivRecipe"
+                android:background="@color/mediumGray" />
 
-    <View
-        android:id="@+id/view5"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginBottom="12dp"
-        android:background="@color/mediumGray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toEndOf="@+id/view4"
-        app:layout_constraintTop_toTopOf="@+id/view4" />
+            <TextView
+                android:id="@+id/textAuthor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/sf_pro_text_medium"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textName"
+                app:layout_constraintStart_toStartOf="@+id/textName"
+                app:layout_constraintTop_toBottomOf="@+id/textName"
+                android:background="@color/mediumGray" />
 
-    <View
-        android:id="@+id/view6"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="24dp"
-        android:background="@color/mediumGray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/view3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/view5"
-        app:layout_constraintTop_toTopOf="@+id/view5"
-        app:layout_constraintVertical_bias="0.0" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textTime"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/sf_pro_text_medium"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivRecipe"
+                android:background="@color/mediumGray" />
+
+            <ImageView
+                android:id="@+id/ivTime"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textTime"
+                app:layout_constraintEnd_toStartOf="@+id/textTime"
+                app:layout_constraintTop_toTopOf="@+id/textTime"
+                android:background="@color/mediumGray"
+                app:tint="@color/colorAccent"
+                tools:ignore="ContentDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
