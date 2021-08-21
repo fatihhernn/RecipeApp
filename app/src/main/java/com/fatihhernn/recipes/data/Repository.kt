@@ -4,6 +4,7 @@ import com.fatihhernn.recipes.data.database.sharedPref.SharedLocalDataSource
 import com.fatihhernn.recipes.data.remote.AuthorizationRemoteDataSource
 import com.fatihhernn.recipes.data.remote.RemoteDataSource
 import com.fatihhernn.recipes.models.login.LoginRequest
+import com.fatihhernn.recipes.models.profile.UserRequest
 import com.fatihhernn.recipes.models.register.RegisterRequest
 import com.fatihhernn.recipes.util.performAuthTokenNetworkOperation
 import com.fatihhernn.recipes.util.performNetworkOperation
@@ -41,5 +42,8 @@ class Repository @Inject constructor(
     }
     fun getUser() = performNetworkOperation {
         authorizationRemoteDataSource.getUser()
+    }
+    fun updateUser(request : UserRequest) = performNetworkOperation {
+        authorizationRemoteDataSource.updateUser(request)
     }
 }

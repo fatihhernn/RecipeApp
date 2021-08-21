@@ -33,8 +33,12 @@
     <fragment
         android:id="@+id/foodJokeFragment"
         android:name="com.fatihhernn.recipes.ui.fragments.foodJokeOther.FoodJokeFragment"
-        android:label="Food Joke"
-        tools:layout="@layout/fragment_other" />
+        android:label="Other Options"
+        tools:layout="@layout/fragment_other" >
+        <action
+            android:id="@+id/action_foodJokeFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
     <dialog
         android:id="@+id/recipesBottomSheet"
         android:name="com.fatihhernn.recipes.ui.fragments.recipes.bottomsheet.RecipesBottomSheet"
@@ -58,4 +62,13 @@
             android:name="result"
             app:argType="com.fatihhernn.recipes.models.Result" />
     </activity>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.fatihhernn.recipes.ui.fragments.settings.SettingFragment"
+        android:label="Update Profile"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_foodJokeFragment"
+            app:destination="@id/foodJokeFragment" />
+    </fragment>
 </navigation>

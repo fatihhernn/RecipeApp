@@ -127,6 +127,10 @@ class FoodJokeFragment : Fragment() {
             startActivity(intent)
             requireActivity().finish()
         }
+        binding.button.setOnClickListener {
+            findNavController().navigate(R.id.action_foodJokeFragment_to_settingFragment)
+        }
+
     }
     private fun setField(user: User?) {
         binding.nameTextView.text = user?.name
