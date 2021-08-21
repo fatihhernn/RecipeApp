@@ -11,9 +11,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.fatihhernn.recipes.R
 import com.fatihhernn.recipes.databinding.FragmentOtherBinding
+import com.fatihhernn.recipes.models.User
 import com.fatihhernn.recipes.ui.activities.AuthActivity
 import com.fatihhernn.recipes.util.Constants.Companion.API_KEY
 import com.fatihhernn.recipes.util.NetworkResult
+import com.fatihhernn.recipes.util.Resource
+import com.fatihhernn.recipes.util.gone
+import com.fatihhernn.recipes.util.show
 import com.fatihhernn.recipes.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -24,6 +28,7 @@ class FoodJokeFragment : Fragment() {
     private var foodJoke=""
 
     private val mainViewModel by viewModels<MainViewModel>()
+    private val otherViewModel by viewModels<OtherViewModel>()
 
     private var _binding:FragmentOtherBinding?=null
     private val binding get() = _binding!!
@@ -67,6 +72,29 @@ class FoodJokeFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.progressBar.visibility=View.VISIBLE
+        getProfile()
+    }
+    private fun getProfile() {
+        otherViewModel.getUser().observe(viewLifecycleOwner, { response ->
+            when (response.status) {
+                Resource.Status.LOADING -> {
+                    binding.progressBar.show()
+                }
+                Resource.Status.SUCCESS -> {
+                    binding.progressBar.gone()
+                    setField(response.data?.user)
+                }
+                Resource.Status.ERROR -> {
+                    binding.progressBar.gone()
+                    Toast.makeText(context, "Operation Failed", Toast.LENGTH_LONG).show()
+                }
+            }
+        })
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.food_joke_menu,menu)
     }
@@ -98,6 +126,24 @@ class FoodJokeFragment : Fragment() {
             val intent = Intent(context, AuthActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
+        }
+    }
+    private fun setField(user: User?) {
+        binding.nameTextView.text = user?.name
+        binding.mailTextView.text = user?.email
+        binding.phoneNumberTextView.text = user?.phone
+        binding.addressTextView.text = user?.address
+        binding.profilePhotoImageView.setImageResource(getImageResource(user?.profileImage))
+    }
+    companion object {
+        fun getImageResource(image : String?) : Int {
+            val resource = try {
+                image?.toInt()
+            } catch (e : Exception) {
+                Log.v("Profile Avatar", e.message.toString())
+                R.drawable.placeholder_image
+            }
+            return resource ?: R.drawable.placeholder_image
         }
     }
 

@@ -1,8 +1,11 @@
 package com.fatihhernn.recipes.di
 
+import com.fatihhernn.recipes.data.database.sharedPref.SharedLocalDataSource
 import com.fatihhernn.recipes.data.network.AuthApiService
+import com.fatihhernn.recipes.data.network.AuthorizationApiService
 import com.fatihhernn.recipes.util.Constants.Companion.BASE_URL
 import com.fatihhernn.recipes.data.network.FoodRecipesApi
+import com.fatihhernn.recipes.data.remote.AuthorizationRemoteDataSource
 import com.fatihhernn.recipes.data.remote.RemoteDataSource
 import com.google.gson.Gson
 import dagger.Module
@@ -78,15 +81,65 @@ object NetworkModule {
     }
 
     @Provides
+    fun provideAuthInterceptorOkHttpClient(
+        sharedlocalDataSource: SharedLocalDataSource
+    ): AuthOkHttpClient {
+        return provideAuthOkHttpClient(OkHttpClient.Builder()
+            .addInterceptor {
+                val token = sharedlocalDataSource.getToken()
+                val request = it.request().newBuilder().addHeader("Authorization", token!!).build()
+                it.proceed(request)
+            }
+            .build())
+    }
+    private fun provideAuthOkHttpClient(okHttpClient: OkHttpClient): AuthOkHttpClient {
+        return AuthOkHttpClient(okHttpClient)
+    }
+
+    @Provides
     fun provideAuthService(@ApiRetrofit retrofit: Retrofit):AuthApiService{
         return retrofit.create(AuthApiService::class.java)
+    }
+
+    @Provides
+    fun provideAuthorizationRemoteDataSource(
+        authorizationAPIService: AuthorizationApiService,
+    ): AuthorizationRemoteDataSource {
+        return AuthorizationRemoteDataSource(authorizationAPIService)
     }
 
     @Provides
     fun provideGson():Gson{
         return Gson()
     }
+
+    @Provides
+    fun provideAuthApiService(@AuthRetrofit retrofit: Retrofit): AuthorizationApiService {
+        return retrofit.create(AuthorizationApiService::class.java)
+    }
+    @Provides
+    @AuthRetrofit
+    fun provideAuthRetrofit(
+        authOkHttpClient: AuthOkHttpClient,
+        gson: Gson,
+        endPoint: EndPoint
+    ): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(endPoint.url)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(authOkHttpClient.okHttpClient)
+            .build()
+    }
+
+    @Provides
+    fun provideEndPoint(): EndPoint {
+        return EndPoint("https://dist-learn.herokuapp.com/api/")
+    }
 }
+data class AuthOkHttpClient(val okHttpClient: OkHttpClient)
+
+data class EndPoint(val url: String)
+
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
@@ -95,3 +148,8 @@ annotation class ApiRetrofit
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class ApiEndPoint
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class AuthRetrofit
+

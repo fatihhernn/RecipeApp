@@ -1,6 +1,7 @@
 package com.fatihhernn.recipes.data
 
 import com.fatihhernn.recipes.data.database.sharedPref.SharedLocalDataSource
+import com.fatihhernn.recipes.data.remote.AuthorizationRemoteDataSource
 import com.fatihhernn.recipes.data.remote.RemoteDataSource
 import com.fatihhernn.recipes.models.login.LoginRequest
 import com.fatihhernn.recipes.models.register.RegisterRequest
@@ -13,7 +14,8 @@ import javax.inject.Inject
 class Repository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
-    private val sharedLocalDataSource: SharedLocalDataSource
+    private val sharedLocalDataSource: SharedLocalDataSource,
+    private var authorizationRemoteDataSource: AuthorizationRemoteDataSource
 
 ) {
     val remote=remoteDataSource
@@ -36,5 +38,8 @@ class Repository @Inject constructor(
     }
     fun logOut() {
         sharedLocalDataSource.saveToken("")
+    }
+    fun getUser() = performNetworkOperation {
+        authorizationRemoteDataSource.getUser()
     }
 }
