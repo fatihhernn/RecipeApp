@@ -17,16 +17,16 @@ Personal project developed with the Android SDK.
   
   <tr>
     <td>
-           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/onBoardingScreen.jpg" width="400" height="350" alt=".android">
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/onBoardingScreen.jpg" width="200" height="400" alt=".android">
    </td>
    <td>
-           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/loginAndRegisterScreen.jpg" width="400" height="350" alt=".android">
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/loginAndRegisterScreen.jpg" width="200" height="400" alt=".android">
    </td>
    <td>
-           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/listOfAllFoodsScreen.jpg" width="400"  height="350" alt=".android">
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/listOfAllFoodsScreen.jpg" width="200"  height="400" alt=".android">
    </td>
    <td>
-           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/detailOfFood.jpg" width="400" height="350" alt=".android">
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/detailOfFood.jpg" width="200" height="400" alt=".android">
    </td>
  
     
