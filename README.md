@@ -116,15 +116,13 @@ foodRecipe | NVARCHAR
     ├── model               # Model classes
     |
     ├── di                  # Dependency Injection             
-    │   ├── builder         # Activity Builder
-    │   ├── component       # DI Components       
     │   └── module          # DI Modules
     |
     ├── ui                  # Activity/View layer
-    │   ├── base            # Base View
-    │   ├── main            # Main Screen Activity & ViewModel
+    │ 
+    │   ├── activities            # Main Screen Activity & ViewModel
     |   │   ├── adapter     # Adapter for RecyclerView
     |   │   └── viewmodel   # ViewHolder for RecyclerView   
-    │   └── details         # Detail Screen Activity and ViewModel
+    │   └── fragments         # Detail Screen Activity and ViewModel
     |
     └── utils               # Utility Classes / Kotlin extensions
