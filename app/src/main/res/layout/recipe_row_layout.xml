@@ -62,6 +62,7 @@
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/sf_pro_text_medium"
                 android:textSize="12sp"
+                android:ellipsize="end"
                 parseHtml="@{result.summary}"
                 android:maxLines="3"
                 app:layout_constraintBottom_toBottomOf="parent"

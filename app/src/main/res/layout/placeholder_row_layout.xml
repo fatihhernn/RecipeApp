@@ -51,15 +51,27 @@
                 android:id="@+id/textAuthor"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/mediumGray"
+                android:fontFamily="@font/sf_pro_text_medium"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/textName"
+                app:layout_constraintStart_toStartOf="@+id/textName"
+                app:layout_constraintTop_toBottomOf="@+id/textName" />
+
+            <TextView
+                android:id="@+id/textAuthor3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/mediumGray"
                 android:fontFamily="@font/sf_pro_text_medium"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/textName"
-                app:layout_constraintStart_toStartOf="@+id/textName"
-                app:layout_constraintTop_toBottomOf="@+id/textName"
-                android:background="@color/mediumGray" />
+                app:layout_constraintEnd_toEndOf="@+id/textAuthor"
+                app:layout_constraintStart_toStartOf="@+id/textAuthor"
+                app:layout_constraintTop_toBottomOf="@+id/textAuthor" />
 
             <TextView
                 android:id="@+id/textTime"
