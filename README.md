@@ -12,6 +12,29 @@ Personal project developed with the Android SDK.
      <td>Login And Register</td>
     <td>List of Recipes</td>
     <td>Detail of Recipe</td>
+  
+  </tr>
+  
+  <tr>
+    <td>
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/onBoardingScreen.jpg" width="400" height="350" alt=".android">
+   </td>
+   <td>
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/loginAndRegisterScreen.jpg" width="400" height="350" alt=".android">
+   </td>
+   <td>
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/listOfAllFoodsScreen.jpg" width="400"  height="350" alt=".android">
+   </td>
+   <td>
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/detailOfFood.jpg" width="400" height="350" alt=".android">
+   </td>
+ 
+    
+ </table>
+
+
+ <table>
+  <tr>
     <td>Share Recipe on Social Media</td>
     <td>Your Favorites</td>
     <td>Settings</td>
@@ -19,27 +42,14 @@ Personal project developed with the Android SDK.
   
   <tr>
     <td>
-           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/onBoardingScreen.jpg" width="500" height="300" alt=".android">
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/Screenshot_2021-08-22-16-43-29-644_android.jpg" width="200" height="400" alt=".android">
    </td>
    <td>
-           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/loginAndRegisterScreen.jpg" width="500" height="300" alt=".android">
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/favoriteFoodsScreen.jpg" width="200" height="400" alt=".android">
    </td>
    <td>
-           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/listOfAllFoodsScreen.jpg" width="500"  height="300" alt=".android">
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/otherOptionsScreen.jpg" width="200" height="400" alt=".android">
    </td>
-   <td>
-           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/detailOfFood.jpg" width="500" height="300" alt=".android">
-   </td>
-    <td>
-           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/Screenshot_2021-08-22-16-43-29-644_android.jpg" width="500" height="300" alt=".android">
-   </td>
-   <td>
-           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/favoriteFoodsScreen.jpg" width="500" height="300" alt=".android">
-   </td>
-   <td>
-           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/otherOptionsScreen.jpg" width="500" height="300" alt=".android">
-   </td>
-    
  </table>
  
 ----
