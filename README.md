@@ -1,9 +1,18 @@
+# Food Recipes App
+Personal project developed with the Android SDK.
+
+- All recipe information is provided by [Spoonacular API.](https://spoonacular.com/food-api) 
+- Register and login is provided by [Herokuapp - 3.party API] (https://dist-learn.herokuapp.com/) 
+
+------
+
 <table>
   <tr>
      <td>Onboarding</td>
      <td>Login And Register</td>
     <td>List of Recipes</td>
     <td>Detail of Recipe</td>
+    <td>Share Recipe on Social Media</td>
     <td>Your Favorites</td>
     <td>Settings</td>
   </tr>
@@ -21,6 +30,9 @@
    <td>
            <img src="https://github.com/fatihhernn/RecipeApp/blob/main/detailOfFood.jpg" width="600" height="300" alt=".android">
    </td>
+    <td>
+           <img src="https://github.com/fatihhernn/RecipeApp/blob/main/Screenshot_2021-08-22-16-43-29-644_android.jpg" width="600" height="300" alt=".android">
+   </td>
    <td>
            <img src="https://github.com/fatihhernn/RecipeApp/blob/main/favoriteFoodsScreen.jpg" width="600" height="300" alt=".android">
    </td>
@@ -28,6 +40,7 @@
            <img src="https://github.com/fatihhernn/RecipeApp/blob/main/otherOptionsScreen.jpg" width="600" height="300" alt=".android">
    </td>
  </table>
+ 
 
 ## Built With 🛠
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
