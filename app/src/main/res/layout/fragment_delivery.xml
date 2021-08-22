@@ -11,8 +11,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtTitle"
         android:text="Order Your Food"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
+        android:fontFamily="@font/sf_pro_text_medium"
+        android:textColor="#b96f00"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -21,17 +22,18 @@
         android:id="@+id/txtDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxWidth="220dp"
         android:text="Now you can order food any time right from your mobile"
         android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/_14ssp"
+        android:textSize="20sp"
+        android:fontFamily="@font/sf_pro_text_medium"
+        android:maxWidth="300dp"
         app:layout_constraintStart_toStartOf="@+id/txtTitle"
         app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:src="@drawable/ic_deliveryfood"
+        android:src="@drawable/onboardingimage2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

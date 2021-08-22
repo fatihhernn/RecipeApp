@@ -1,8 +1,6 @@
 package com.fatihhernn.recipes.ui.activities.onBoarding
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -28,8 +26,6 @@ class OnBoardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         supportActionBar?.hide();
-
-        //val token=getToken()
 
         if(isOnboardingSeen()) {
             val intent = Intent(applicationContext, AuthActivity::class.java)
@@ -136,21 +132,21 @@ class OnBoardingActivity : AppCompatActivity() {
             OnBoardingData(
                 "Yummy Recipes are here",
                 "From easy and practical recipes, you can easily access different recipes that not everyone knows.",
-                R.drawable.ic_orderfood
+                R.drawable.onboardingimage2
             )
         )
         items.add(
             OnBoardingData(
                 "Learn Examples from World Cuisine",
                 "From the most popular dishes to the newest, simple and beautiful recipes, illustrated and tried all delicious recipes, detailed explanations",
-                R.drawable.ic_safecooking
+                R.drawable.onboardingimage
             )
         )
         items.add(
             OnBoardingData(
-                "Instant Access to Thousands of Tariffs",
+                "Instant Access to Thousands of Recipes",
                 "Recipe page where you can find video recipes, ingredient lists and tips",
-                R.drawable.ic_deliveryfood
+                R.drawable.onboardingimage3
             )
         )
         return items

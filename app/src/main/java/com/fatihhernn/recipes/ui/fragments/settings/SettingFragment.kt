@@ -1,15 +1,14 @@
 package com.fatihhernn.recipes.ui.fragments.settings
 
-import android.app.ActionBar
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.fatihhernn.recipes.R
-import com.fatihhernn.recipes.databinding.FragmentOtherBinding
 import com.fatihhernn.recipes.databinding.FragmentSettingBinding
 import com.fatihhernn.recipes.models.User
 import com.fatihhernn.recipes.models.profile.UserRequest
@@ -70,11 +69,13 @@ class SettingFragment : Fragment() {
                     _binding.progressBar5.show()
                 }
                 Resource.Status.SUCCESS -> {
+                    Toast.makeText(context,"Profiliniz başarı ile güncellendi",Toast.LENGTH_LONG).show()
                     findNavController().navigate(R.id.action_settingFragment_to_foodJokeFragment)
                     _binding.progressBar5.gone()
                 }
                 Resource.Status.ERROR -> {
                     _binding.progressBar5.gone()
+                    Toast.makeText(context,response.message,Toast.LENGTH_LONG).show()
                 }
             }
         })
