@@ -4,6 +4,8 @@ Personal project developed with the Android SDK.
 - All recipe information is provided by [Spoonacular API.](https://spoonacular.com/food-api) 
 - Register and login is provided by [Herokuapp - 3.party API](https://dist-learn.herokuapp.com/) 
 
+- [App introduction video on Youtube](https://www.youtube.com/watch?v=2i0laRNv0KM&feature=youtu.be)
+
 ------
 
 <table>
@@ -38,6 +40,7 @@ Personal project developed with the Android SDK.
     <td>Share Recipe on Social Media</td>
     <td>Your Favorites</td>
     <td>Settings</td>
+    <td>User UpdateSettings</td>
   </tr>
   
   <tr>
@@ -50,6 +53,10 @@ Personal project developed with the Android SDK.
    <td>
            <img src="https://github.com/fatihhernn/RecipeApp/blob/main/otherOptionsScreen.jpg" width="200" height="400" alt=".android">
    </td>
+    <td>
+           <img src="https://github.com/Yemeksepeti-Mobil-Android-Bootcamp/final-project-fatih-eren/blob/main/1629659419969.jpg" width="200" height="400" alt=".android">
+   </td>
+    
  </table>
  
 ----
@@ -71,9 +78,10 @@ Personal project developed with the Android SDK.
 - [okhttp-logging-interceptor](https://github.com/square/okhttp/blob/master/okhttp-logging-interceptor/README.md) - logging HTTP request related data.
 - [Gson](https://github.com/google/gson) - Gson is a Java library that can be used to convert Java Objects into their JSON representation
 - [Coil-kt](https://coil-kt.github.io/coil/) - An image loading library for Android backed by Kotlin Coroutines.
-- [Offline Cache]
+- Offline Caching
 - [Material Components for Android](https://github.com/material-components/material-components-android) - Modular and customizable Material Design UI components for Android.
-- [Menus - Contextual Menu](https://developer.android.com/guide/topics/ui/menus)- Menus are a common user interface component in many types of applications. 
+- [Menu - Contextual Menu](https://developer.android.com/guide/topics/ui/menus)- Menus are a common user interface component in many types of applications. 
+- [Motion Layout](https://developer.android.com/training/constraint-layout/motionlayout)- MotionLayout is a layout type that helps you manage motion and widget animation in your app.
 - [Shimmer Effect](https://github.com/omtodkar/ShimmerRecyclerView) - ShimmerRecyclerView is an custom RecyclerView library based on Facebook's Shimmer effect for Android library
 - [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - For writing Gradle build scripts using Kotlin.
 ---
